@@ -1,6 +1,6 @@
 {
   "name": "unist-util-mdx-define",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A unist utility to define MDX exports.",
   "keywords": [],
   "homepage": "https://github.com/remcohaszing/unist-util-mdx-define#readme",
