@@ -398,6 +398,50 @@ describe('name conflict', () => {
       )
     })
   })
+
+  test('invalid identifier', () => {
+    assert.throws(
+      () => {
+        compileSync('', {
+          recmaPlugins: [[plugin, { ':(': { type: 'Literal', value: 2 } }]]
+        })
+      },
+      (error) => {
+        assert(error instanceof VFileMessage)
+        assert.equal(error.reason, 'Invalid identifier name: :(')
+        assert.equal(error.fatal, true)
+        assert.equal(error.ruleId, 'invalid-identifier')
+        assert.equal(error.source, 'unist-util-mdx-define')
+        assert.equal(error.url, 'https://github.com/remcohaszing/unist-util-mdx-define')
+        return true
+      }
+    )
+  })
+
+  test('invalid identifier namespace', () => {
+    const result = String(
+      compileSync('', {
+        jsx: true,
+        recmaPlugins: [
+          [plugin, { ':)': { type: 'Literal', value: ':D' } }, { export: 'namespace' }]
+        ]
+      })
+    )
+    assertEqual(
+      result,
+      `/*@jsxRuntime automatic*/
+/*@jsxImportSource react*/
+MDXContent[":)"] = ":D";
+function _createMdxContent(props) {
+  return <></>;
+}
+export default function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = props.components || ({});
+  return MDXLayout ? <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout> : _createMdxContent(props);
+}
+`
+    )
+  })
 })
 
 describe('function-body', () => {

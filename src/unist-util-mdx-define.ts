@@ -1,4 +1,5 @@
 import type * as estree from 'estree'
+import { name as isIdentifierName } from 'estree-util-is-identifier-name'
 import { createVisitors } from 'estree-util-scope'
 import { walk } from 'estree-walker'
 import type * as hast from 'hast'
@@ -139,16 +140,17 @@ function generate(
     const statements: estree.Statement[] = []
 
     for (const [name, right] of variables) {
+      const isIdentifier = isIdentifierName(name)
       statements.push({
         type: 'ExpressionStatement',
         expression: {
           type: 'AssignmentExpression',
           left: {
             type: 'MemberExpression',
-            computed: false,
+            computed: !isIdentifier,
             object: { type: 'Identifier', name: 'MDXContent' },
             optional: false,
-            property: { type: 'Identifier', name }
+            property: isIdentifier ? { type: 'Identifier', name } : { type: 'Literal', value: name }
           },
           operator: '=',
           right
@@ -242,6 +244,16 @@ export function define(
       ) {
         const message = file.message(`MDX internal name conflict: ${name}`, {
           ruleId: 'internal',
+          source: 'unist-util-mdx-define'
+        })
+        message.url = 'https://github.com/remcohaszing/unist-util-mdx-define'
+        message.fatal = true
+        throw message
+      }
+
+      if (!isIdentifierName(name)) {
+        const message = file.message(`Invalid identifier name: ${name}`, {
+          ruleId: 'invalid-identifier',
           source: 'unist-util-mdx-define'
         })
         message.url = 'https://github.com/remcohaszing/unist-util-mdx-define'
