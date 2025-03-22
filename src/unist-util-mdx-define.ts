@@ -142,21 +142,16 @@ function generate(
       statements.push({
         type: 'ExpressionStatement',
         expression: {
-          type: 'SequenceExpression',
-          expressions: [
-            {
-              type: 'AssignmentExpression',
-              left: {
-                type: 'MemberExpression',
-                computed: false,
-                object: { type: 'Identifier', name: 'MDXContent' },
-                optional: false,
-                property: { type: 'Identifier', name }
-              },
-              operator: '=',
-              right
-            }
-          ]
+          type: 'AssignmentExpression',
+          left: {
+            type: 'MemberExpression',
+            computed: false,
+            object: { type: 'Identifier', name: 'MDXContent' },
+            optional: false,
+            property: { type: 'Identifier', name }
+          },
+          operator: '=',
+          right
         }
       })
     }
