@@ -282,6 +282,122 @@ describe('name conflict', () => {
       })
     })
   })
+
+  describe('internal', () => {
+    test('_createMdxContent', () => {
+      assert.throws(
+        () => {
+          compileSync('', {
+            recmaPlugins: [[plugin, { _createMdxContent: { type: 'Literal', value: 2 } }]]
+          })
+        },
+        (error) => {
+          assert(error instanceof VFileMessage)
+          assert.equal(error.reason, 'MDX internal name conflict: _createMdxContent')
+          assert.equal(error.fatal, true)
+          assert.equal(error.ruleId, 'internal')
+          assert.equal(error.source, 'unist-util-mdx-define')
+          assert.equal(error.url, 'https://github.com/remcohaszing/unist-util-mdx-define')
+          return true
+        }
+      )
+    })
+
+    test('_Fragment', () => {
+      assert.throws(
+        () => {
+          compileSync('', {
+            recmaPlugins: [[plugin, { _Fragment: { type: 'Literal', value: 2 } }]]
+          })
+        },
+        (error) => {
+          assert(error instanceof VFileMessage)
+          assert.equal(error.reason, 'MDX internal name conflict: _Fragment')
+          assert.equal(error.fatal, true)
+          assert.equal(error.ruleId, 'internal')
+          assert.equal(error.source, 'unist-util-mdx-define')
+          assert.equal(error.url, 'https://github.com/remcohaszing/unist-util-mdx-define')
+          return true
+        }
+      )
+    })
+
+    test('_jsx', () => {
+      assert.throws(
+        () => {
+          compileSync('', {
+            recmaPlugins: [[plugin, { _jsx: { type: 'Literal', value: 2 } }]]
+          })
+        },
+        (error) => {
+          assert(error instanceof VFileMessage)
+          assert.equal(error.reason, 'MDX internal name conflict: _jsx')
+          assert.equal(error.fatal, true)
+          assert.equal(error.ruleId, 'internal')
+          assert.equal(error.source, 'unist-util-mdx-define')
+          assert.equal(error.url, 'https://github.com/remcohaszing/unist-util-mdx-define')
+          return true
+        }
+      )
+    })
+
+    test('_jsxs', () => {
+      assert.throws(
+        () => {
+          compileSync('', {
+            recmaPlugins: [[plugin, { _jsxs: { type: 'Literal', value: 2 } }]]
+          })
+        },
+        (error) => {
+          assert(error instanceof VFileMessage)
+          assert.equal(error.reason, 'MDX internal name conflict: _jsxs')
+          assert.equal(error.fatal, true)
+          assert.equal(error.ruleId, 'internal')
+          assert.equal(error.source, 'unist-util-mdx-define')
+          assert.equal(error.url, 'https://github.com/remcohaszing/unist-util-mdx-define')
+          return true
+        }
+      )
+    })
+
+    test('_missingMdxReference', () => {
+      assert.throws(
+        () => {
+          compileSync('', {
+            recmaPlugins: [[plugin, { _missingMdxReference: { type: 'Literal', value: 2 } }]]
+          })
+        },
+        (error) => {
+          assert(error instanceof VFileMessage)
+          assert.equal(error.reason, 'MDX internal name conflict: _missingMdxReference')
+          assert.equal(error.fatal, true)
+          assert.equal(error.ruleId, 'internal')
+          assert.equal(error.source, 'unist-util-mdx-define')
+          assert.equal(error.url, 'https://github.com/remcohaszing/unist-util-mdx-define')
+          return true
+        }
+      )
+    })
+
+    test('MDXContent', () => {
+      assert.throws(
+        () => {
+          compileSync('', {
+            recmaPlugins: [[plugin, { MDXContent: { type: 'Literal', value: 2 } }]]
+          })
+        },
+        (error) => {
+          assert(error instanceof VFileMessage)
+          assert.equal(error.reason, 'MDX internal name conflict: MDXContent')
+          assert.equal(error.fatal, true)
+          assert.equal(error.ruleId, 'internal')
+          assert.equal(error.source, 'unist-util-mdx-define')
+          assert.equal(error.url, 'https://github.com/remcohaszing/unist-util-mdx-define')
+          return true
+        }
+      )
+    })
+  })
 })
 
 describe('function-body', () => {

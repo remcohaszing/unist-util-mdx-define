@@ -230,6 +230,27 @@ export function define(
 ): undefined {
   const map = new Map(Object.entries(variables))
 
+  if (options?.export !== 'namespace') {
+    for (const name of map.keys()) {
+      if (
+        name === '_createMdxContent' ||
+        name === '_Fragment' ||
+        name === '_jsx' ||
+        name === '_jsxs' ||
+        name === '_missingMdxReference' ||
+        name === 'MDXContent'
+      ) {
+        const message = file.message(`MDX internal name conflict: ${name}`, {
+          ruleId: 'internal',
+          source: 'unist-util-mdx-define'
+        })
+        message.url = 'https://github.com/remcohaszing/unist-util-mdx-define'
+        message.fatal = true
+        throw message
+      }
+    }
+  }
+
   if (ast.type === 'root') {
     for (const child of ast.children) {
       if (child.type !== 'mdxjsEsm') {
