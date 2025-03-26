@@ -37,7 +37,7 @@ function plugin(variables: define.Variables, options?: define.Options) {
  *   The wrapped content as a string.
  */
 function iife(content: unknown): string {
-  return `(() => {${content}})()`
+  return `(async () => {${content}})()`
 }
 
 testFixturesDirectory<define.Options>({

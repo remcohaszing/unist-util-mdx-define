@@ -1,4 +1,4 @@
-;(() => {
+;(async () => {
   /*@jsxRuntime automatic*/
   /*@jsxImportSource react*/
   'use strict'
