@@ -111,9 +111,9 @@ Define variables in an MDX related AST.
   - `'namespace'`: Attach the value as a property on `MDXContent`.
   - `false`: Define the variable locally, but don’t export it.
 - `conflict` — What to do if there’s a name conflict. (Default: `'throw'`)
-  - `skip`: Don’t insert the variable if there’s a name conflict.
-  - `throw`: Throw if there’s a name conflict.
-  - `warn`: Emit a vfile warning, but don’t throw.
+  - `'skip'`: Don’t insert the variable if there’s a name conflict.
+  - `'throw'`: Throw if there’s a name conflict.
+  - `'warn'`: Emit a vfile warning, but don’t throw.
 
 ## Compatibility
 

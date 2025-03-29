@@ -31,9 +31,9 @@ export namespace define {
     /**
      * What to do if there’s a name conflict.
      *
-     * - `skip`: Don’t insert the variable if there’s a name conflict.
-     * - `throw`: Throw if there’s a name conflict.
-     * - `warn`: Emit a vfile warning, but don’t throw.
+     * - `'skip'`: Don’t insert the variable if there’s a name conflict.
+     * - `'throw'`: Throw if there’s a name conflict.
+     * - `'warn'`: Emit a vfile warning, but don’t throw.
      *
      * @default 'throw'
      */
