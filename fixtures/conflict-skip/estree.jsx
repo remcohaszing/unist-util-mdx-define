@@ -1,7 +1,7 @@
 /*@jsxRuntime automatic*/
 /*@jsxImportSource react*/
-export const a = 'original'
 export const b = 'estree export b'
+export const a = 'original'
 function _createMdxContent(props) {
   return <></>
 }

@@ -1,5 +1,7 @@
 /*@jsxRuntime automatic*/
 /*@jsxImportSource react*/
+export const a = 'estree export a'
+export const b = 'estree export b'
 export function functionDeclaration() {
   let a
 }
@@ -15,8 +17,6 @@ export class ClassDeclaration {
 export const ClassExpression = class {
   a
 }
-export const a = 'estree export a'
-export const b = 'estree export b'
 function _createMdxContent(props) {
   return <></>
 }

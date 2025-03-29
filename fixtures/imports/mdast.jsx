@@ -1,8 +1,8 @@
 /*@jsxRuntime automatic*/
 /*@jsxImportSource react*/
-import { useState } from 'react'
 export const a = 'mdast export a'
 export const b = 'mdast export b'
+import { useState } from 'react'
 function _createMdxContent(props) {
   return <></>
 }

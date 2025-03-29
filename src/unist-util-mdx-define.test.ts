@@ -460,8 +460,8 @@ describe('function-body', () => {
     const result = generate(ast)
     assertEqual(
       result,
-      `const a = 1;
-const b = 2;
+      `const b = 2;
+const a = 1;
 return {
   b
 };

@@ -7,9 +7,9 @@
     throw new Error(
       'Unexpected missing `options.baseUrl` needed to support `export … from`, `import`, or `import.meta.url` when generating `function-body`'
     )
-  const { useState } = await import(_resolveDynamicMdxSpecifier('react'))
   const a = 'hast function-body export a'
   const b = 'hast function-body export b'
+  const { useState } = await import(_resolveDynamicMdxSpecifier('react'))
   function _createMdxContent(props) {
     return <></>
   }

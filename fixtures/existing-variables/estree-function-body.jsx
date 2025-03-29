@@ -2,10 +2,10 @@
   /*@jsxRuntime automatic*/
   /*@jsxImportSource react*/
   'use strict'
-  const $0 = '$0'
-  const $1 = '$1'
   const a = 'estree function-body export a'
   const b = 'estree function-body export b'
+  const $0 = '$0'
+  const $1 = '$1'
   function _createMdxContent(props) {
     return <></>
   }

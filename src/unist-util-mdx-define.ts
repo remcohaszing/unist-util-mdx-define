@@ -51,7 +51,7 @@ export namespace define {
  * @param options
  *   {@link define}.options
  * @returns
- *   The position in the body where `_createMdxContent` is defined.
+ *   The position in the body where the export may be injected.
  */
 function scan(
   program: estree.Program,
@@ -62,10 +62,10 @@ function scan(
   const visitors = createVisitors()
   const [scope] = visitors.scopes
   const identifiers = new Map<string, estree.Identifier>()
-  let createMdxContentIndex = -1
+  let injectIndex = 0
 
   walk(program, {
-    enter(node) {
+    enter(node, parent) {
       visitors.enter(node)
       switch (node.type) {
         case 'Identifier':
@@ -78,14 +78,18 @@ function scan(
         case 'ClassDeclaration':
         case 'ClassExpression':
         case 'FunctionExpression':
+        case 'FunctionDeclaration':
           this.skip()
           break
 
-        case 'FunctionDeclaration':
-          this.skip()
-
-          if (node.id.name === '_createMdxContent') {
-            createMdxContentIndex = program.body.indexOf(node)
+        // Don’t insert before directives.
+        case 'ExpressionStatement':
+          if (
+            parent === program &&
+            node.expression.type === 'Literal' &&
+            typeof node.expression.value === 'string'
+          ) {
+            injectIndex = program.body.indexOf(node) + 1
           }
           break
 
@@ -116,7 +120,7 @@ function scan(
     }
   }
 
-  return createMdxContentIndex
+  return injectIndex
 }
 
 /**
@@ -282,7 +286,7 @@ export function define(
     }
 
     if (map.size) {
-      ast.children.push({
+      ast.children.unshift({
         type: 'mdxjsEsm',
         value: '',
         data: {
@@ -296,18 +300,9 @@ export function define(
     }
   } else {
     const returnStatement = ast.body.find((node) => node.type === 'ReturnStatement')
-    const createMdxContentIndex = scan(ast, file, map, options)
+    const injectIndex = scan(ast, file, map, options)
     if (map.size) {
-      let index = createMdxContentIndex
-      if (index === -1 && returnStatement) {
-        index = ast.body.indexOf(returnStatement)
-      }
-
-      if (index === -1) {
-        index = ast.body.length
-      }
-
-      ast.body.splice(createMdxContentIndex, 0, ...generate(map, options, returnStatement))
+      ast.body.splice(injectIndex, 0, ...generate(map, options, returnStatement))
     }
   }
 }

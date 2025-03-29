@@ -2,14 +2,14 @@
   /*@jsxRuntime automatic*/
   /*@jsxImportSource react*/
   'use strict'
+  const a = 'estree function-body export a'
+  const b = 'estree function-body export b'
   const _importMetaUrl = arguments[0].baseUrl
   if (!_importMetaUrl)
     throw new Error(
       'Unexpected missing `options.baseUrl` needed to support `export … from`, `import`, or `import.meta.url` when generating `function-body`'
     )
   const { useState } = await import(_resolveDynamicMdxSpecifier('react'))
-  const a = 'estree function-body export a'
-  const b = 'estree function-body export b'
   function _createMdxContent(props) {
     return <></>
   }

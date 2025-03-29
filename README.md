@@ -83,9 +83,10 @@ For most other purposes, use a recma plugin. For example,
 information. This doesn’t need access to the content.
 
 `unist-util-mdx-define` can define variables in any of these AST types. For mdast and hast, it
-appends the variable declarations to the root. This way they’ll end up right before the
-`_createMdxContent` function declaration in the resulting output. For ESTree,
-`unist-util-mdx-define` attempts to do the same.
+prepends the variable declarations to the root. This way they’ll end up at the start of the module,
+and their value can be used by **user defined** expressions. This does mean the **generated**
+expressions are not able to use other variables. For ESTree, `unist-util-mdx-define` attempts to do
+the same.
 
 ## API
 

@@ -2,10 +2,10 @@
   /*@jsxRuntime automatic*/
   /*@jsxImportSource react*/
   'use strict'
-  const $0 = '$0'
-  const $1 = '$1'
   const a = 'mdast function-body export a'
   const b = 'mdast function-body export b'
+  const $0 = '$0'
+  const $1 = '$1'
   function _createMdxContent(props) {
     return <></>
   }
@@ -20,10 +20,10 @@
     )
   }
   return {
-    $0,
-    $1,
     a,
     b,
+    $0,
+    $1,
     default: MDXContent
   }
 })()

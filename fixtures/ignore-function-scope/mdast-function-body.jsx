@@ -2,6 +2,8 @@
   /*@jsxRuntime automatic*/
   /*@jsxImportSource react*/
   'use strict'
+  const a = 'mdast function-body export a'
+  const b = 'mdast function-body export b'
   function functionDeclaration() {
     let a
   }
@@ -17,8 +19,6 @@
   const ClassExpression = class {
     a
   }
-  const a = 'mdast function-body export a'
-  const b = 'mdast function-body export b'
   function _createMdxContent(props) {
     return <></>
   }
@@ -33,13 +33,13 @@
     )
   }
   return {
+    a,
+    b,
     functionDeclaration,
     functionExpression,
     arrowFunctionExpression,
     ClassDeclaration,
     ClassExpression,
-    a,
-    b,
     default: MDXContent
   }
 })()

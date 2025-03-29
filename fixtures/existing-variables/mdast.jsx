@@ -1,9 +1,9 @@
 /*@jsxRuntime automatic*/
 /*@jsxImportSource react*/
-export const $0 = '$0'
-export const $1 = '$1'
 export const a = 'mdast export a'
 export const b = 'mdast export b'
+export const $0 = '$0'
+export const $1 = '$1'
 function _createMdxContent(props) {
   return <></>
 }

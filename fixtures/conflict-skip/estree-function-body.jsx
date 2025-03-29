@@ -2,8 +2,8 @@
   /*@jsxRuntime automatic*/
   /*@jsxImportSource react*/
   'use strict'
-  const a = 'original'
   const b = 'estree function-body export b'
+  const a = 'original'
   function _createMdxContent(props) {
     return <></>
   }

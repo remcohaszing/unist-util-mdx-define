@@ -2,8 +2,8 @@
   /*@jsxRuntime automatic*/
   /*@jsxImportSource react*/
   'use strict'
-  const a = 'original'
   const b = 'mdast function-body export b'
+  const a = 'original'
   function _createMdxContent(props) {
     return <></>
   }
@@ -18,8 +18,8 @@
     )
   }
   return {
-    a,
     b,
+    a,
     default: MDXContent
   }
 })()

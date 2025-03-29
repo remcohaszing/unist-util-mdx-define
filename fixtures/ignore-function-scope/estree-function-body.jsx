@@ -2,6 +2,8 @@
   /*@jsxRuntime automatic*/
   /*@jsxImportSource react*/
   'use strict'
+  const a = 'estree function-body export a'
+  const b = 'estree function-body export b'
   function functionDeclaration() {
     let a
   }
@@ -17,8 +19,6 @@
   const ClassExpression = class {
     a
   }
-  const a = 'estree function-body export a'
-  const b = 'estree function-body export b'
   function _createMdxContent(props) {
     return <></>
   }
