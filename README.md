@@ -21,7 +21,7 @@ A [unist](https://github.com/syntax-tree/unist) utility to define [MDX](https://
 ## Introduction
 
 This package provides a utility to define exports in an [MDX](https://mdxjs.com) AST, so you don’t
-have to worry about the details.. It supports [mdast](https://github.com/syntax-tree/mdast)
+have to worry about the details. It supports [mdast](https://github.com/syntax-tree/mdast)
 ([remark](https://github.com/remarkjs)), [hast](https://github.com/syntax-tree/hast)
 ([rehype](https://github.com/rehypejs)), and [estree](https://github.com/estree/estree) /
 [esast](https://github.com/syntax-tree/esast) ([recma](https://github.com/mdx-js/recma)). This
