@@ -162,7 +162,7 @@ describe('name conflict', () => {
           })
         },
         (error) => {
-          assert(error instanceof VFileMessage)
+          assert.ok(error instanceof VFileMessage)
           assert.equal(error.reason, 'Variable name conflict: a')
           assert.equal(error.fatal, true)
           assert.equal(error.ruleId, 'conflict')
@@ -185,7 +185,7 @@ describe('name conflict', () => {
           })
         },
         (error) => {
-          assert(error instanceof VFileMessage)
+          assert.ok(error instanceof VFileMessage)
           assert.equal(error.reason, 'Variable name conflict: a')
           assert.equal(error.fatal, true)
           assert.equal(error.ruleId, 'conflict')
@@ -208,7 +208,7 @@ describe('name conflict', () => {
           })
         },
         (error) => {
-          assert(error instanceof VFileMessage)
+          assert.ok(error instanceof VFileMessage)
           assert.equal(error.reason, 'Variable name conflict: a')
           assert.equal(error.fatal, true)
           assert.equal(error.ruleId, 'conflict')
@@ -232,7 +232,7 @@ describe('name conflict', () => {
 
       assert.equal(vfile.messages.length, 1)
       const [message] = vfile.messages
-      assert(message instanceof VFileMessage)
+      assert.ok(message instanceof VFileMessage)
       assert.equal(message.reason, 'Variable name conflict: a')
       assert.equal(message.fatal, false)
       assert.equal(message.ruleId, 'conflict')
@@ -251,7 +251,7 @@ describe('name conflict', () => {
 
       assert.equal(vfile.messages.length, 1)
       const [message] = vfile.messages
-      assert(message instanceof VFileMessage)
+      assert.ok(message instanceof VFileMessage)
       assert.equal(message.reason, 'Variable name conflict: a')
       assert.equal(message.fatal, false)
       assert.equal(message.ruleId, 'conflict')
@@ -270,7 +270,7 @@ describe('name conflict', () => {
 
       assert.equal(vfile.messages.length, 1)
       const [message] = vfile.messages
-      assert(message instanceof VFileMessage)
+      assert.ok(message instanceof VFileMessage)
       assert.equal(message.reason, 'Variable name conflict: a')
       assert.equal(message.fatal, false)
       assert.equal(message.ruleId, 'conflict')
@@ -292,7 +292,7 @@ describe('name conflict', () => {
           })
         },
         (error) => {
-          assert(error instanceof VFileMessage)
+          assert.ok(error instanceof VFileMessage)
           assert.equal(error.reason, 'MDX internal name conflict: _createMdxContent')
           assert.equal(error.fatal, true)
           assert.equal(error.ruleId, 'internal')
@@ -311,7 +311,7 @@ describe('name conflict', () => {
           })
         },
         (error) => {
-          assert(error instanceof VFileMessage)
+          assert.ok(error instanceof VFileMessage)
           assert.equal(error.reason, 'MDX internal name conflict: _Fragment')
           assert.equal(error.fatal, true)
           assert.equal(error.ruleId, 'internal')
@@ -330,7 +330,7 @@ describe('name conflict', () => {
           })
         },
         (error) => {
-          assert(error instanceof VFileMessage)
+          assert.ok(error instanceof VFileMessage)
           assert.equal(error.reason, 'MDX internal name conflict: _jsx')
           assert.equal(error.fatal, true)
           assert.equal(error.ruleId, 'internal')
@@ -349,7 +349,7 @@ describe('name conflict', () => {
           })
         },
         (error) => {
-          assert(error instanceof VFileMessage)
+          assert.ok(error instanceof VFileMessage)
           assert.equal(error.reason, 'MDX internal name conflict: _jsxs')
           assert.equal(error.fatal, true)
           assert.equal(error.ruleId, 'internal')
@@ -368,7 +368,7 @@ describe('name conflict', () => {
           })
         },
         (error) => {
-          assert(error instanceof VFileMessage)
+          assert.ok(error instanceof VFileMessage)
           assert.equal(error.reason, 'MDX internal name conflict: _missingMdxReference')
           assert.equal(error.fatal, true)
           assert.equal(error.ruleId, 'internal')
@@ -387,7 +387,7 @@ describe('name conflict', () => {
           })
         },
         (error) => {
-          assert(error instanceof VFileMessage)
+          assert.ok(error instanceof VFileMessage)
           assert.equal(error.reason, 'MDX internal name conflict: MDXContent')
           assert.equal(error.fatal, true)
           assert.equal(error.ruleId, 'internal')
@@ -407,7 +407,7 @@ describe('name conflict', () => {
         })
       },
       (error) => {
-        assert(error instanceof VFileMessage)
+        assert.ok(error instanceof VFileMessage)
         assert.equal(error.reason, 'Invalid identifier name: :(')
         assert.equal(error.fatal, true)
         assert.equal(error.ruleId, 'invalid-identifier')
